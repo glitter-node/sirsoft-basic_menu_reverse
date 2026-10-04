@@ -1,0 +1,103 @@
+프로그램 명칭 : 그누보드7용 Basic Menu Reverse 템플릿 (sirsoft-basic_menu_reverse)
+
+원본 프로그램 : 그누보드7용 Basic 템플릿 (sirsoft-basic)
+
+원본 저작자 : (주)에스아이알소프트
+수정 및 파생 템플릿 저작자 : Glitter.kr
+
+이 템플릿은 (주)에스아이알소프트의 `sirsoft-basic` 템플릿을 기반으로 수정한 파생 저작물입니다.
+
+`sirsoft-basic_menu_reverse`는 `sirsoft-basic`을 참고 원본으로 사용하여 제작되었으나, 런타임에서 `sirsoft-basic`에 의존하지 않는 독립적인 템플릿입니다.
+
+원본 저작물에 대한 저작권은 원저작자에게 있으며, Glitter.kr의 저작권 표시는 이 파생 템플릿에서 새로 작성하거나 수정한 부분에 적용됩니다.
+
+----- MIT 라이선스 (한국어 번역) --------------------------------------------------------
+
+MIT 라이선스
+
+Copyright (c) 2026 (주)에스아이알소프트
+Copyright (c) 2026 Glitter.kr
+
+이 소프트웨어와 관련 문서 파일(이하 "소프트웨어")의 복사본을 취득하는 모든 사람에게
+소프트웨어를 제한 없이 사용, 복사, 수정, 병합, 출판, 배포, 서브라이선스 허여 및/또는
+판매할 수 있는 권리를 무상으로 부여합니다. 다만, 소프트웨어를 제공받은 사람은 다음
+조건을 따라야 합니다:
+
+위 저작권 고지와 본 허가 고지는 소프트웨어의 모든 복사본 또는 상당 부분에 포함되어야
+합니다.
+
+소프트웨어는 "있는 그대로" 제공되며, 명시적이든 묵시적이든 어떠한 종류의 보증도 하지
+않습니다. 여기에는 상품성, 특정 목적에의 적합성 및 비침해에 대한 보증이 포함되나 이에
+국한되지 않습니다. 어떠한 경우에도 저작자 또는 저작권자는 소프트웨어나 소프트웨어의
+사용 또는 기타 거래로 인해 발생하는 계약, 불법행위 또는 기타 청구, 손해 또는 기타
+책임에 대해 책임을 지지 않습니다.
+
+----- MIT License (English Original) --------------------------------------------------------
+
+The MIT License (MIT)
+
+Copyright (c) 2026 SIRSOFT
+Copyright (c) 2026 Glitter.kr
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+----- Derivative Work Notice ---------------------------------------------------------------
+
+This template, `sirsoft-basic_menu_reverse`, is a derivative work based on
+the Gnuboard7 Basic Template (`sirsoft-basic`) originally developed and
+copyrighted by SIRSOFT.
+
+Copyright in the original work remains with SIRSOFT.
+
+Copyright in modifications and newly added portions of
+`sirsoft-basic_menu_reverse` is held by Glitter.kr.
+
+`sirsoft-basic` is used as the reference source for this derivative work.
+`sirsoft-basic_menu_reverse` is designed and distributed as an independent
+template and does not require `sirsoft-basic` as a runtime dependency.
+
+The original MIT license, copyright notice, and applicable third-party
+license notices are retained in accordance with their respective license
+terms.
+
+----- 동봉된 제3자 소프트웨어 --------------------------------------------------------------
+
+이 템플릿은 아래 제3자 소프트웨어를 함께 배포할 수 있습니다.
+
+각 제3자 소프트웨어의 저작권과 라이선스는 해당 원저작자 및 권리자에게 있으며,
+각 소프트웨어는 해당 라이선스 조건을 그대로 따릅니다.
+
+위 MIT 라이선스와 Glitter.kr의 저작권 표시는 해당 제3자 소프트웨어의 저작권이나
+라이선스를 대체하거나 변경하지 않습니다.
+
+| 소프트웨어 | 버전 | 라이선스 | 경로 |
+| --- | --- | --- | --- |
+| Font Awesome Free | 6.4.0 | 아이콘 CC BY 4.0 · 폰트 SIL OFL 1.1 · 코드 MIT | `dist/vendor/font-awesome/6.4.0/` |
+| Pretendard | 1.3.9 | SIL OFL 1.1 | `dist/vendor/pretendard/1.3.9/` |
+| browser-image-compression | 2.0.2 | MIT | `dist/vendor/browser-image-compression/2.0.2/` |
+
+위 표의 제3자 소프트웨어가 `sirsoft-basic_menu_reverse` 배포본에 실제 포함되는 경우,
+각 소프트웨어의 원본 라이선스 및 필요한 저작권 고지는 해당 디렉토리에 유지합니다.
+
+Font Awesome의 `css/all.inlined.css`가 배포본에 포함되는 경우, 이는 웹폰트를
+data: URI 형태로 포함하도록 재생성된 CSS입니다. 해당 파일 및 재생성에 사용되는
+소프트웨어와 원본 자산에는 각각의 원 라이선스가 계속 적용됩니다.
+
+`scripts/vendor-inline-css.mjs` 및 관련 재생성 절차가 이 템플릿에 포함되는 경우에도
+해당 원본 저작권 및 라이선스 고지를 유지합니다.
