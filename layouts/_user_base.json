@@ -945,9 +945,7 @@
                                                     "iteration": { "source": "{{$locales}}", "item_var": "loc" },
                                                     "props": {
                                                         "type": "button",
-                                                        "className": "{{loc === $locale ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800' : 'text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700'}} inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border rounded-full cursor-pointer whitespace-nowrap",
-                                                        "role": "option",
-                                                        "aria-selected": "{{loc === $locale}}"
+                                                        "className": "{{loc === $locale ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800' : 'text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700'}} inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border rounded-full cursor-pointer whitespace-nowrap"
                                                     },
                                                     "actions": [
                                                         { "type": "click", "handler": "setLocale", "target": "{{loc}}" }
@@ -2179,7 +2177,8 @@
                     "type": "basic",
                     "name": "Div",
                     "props": {
-                        "className": "flex-1"
+                        "className": "flex-1",
+                        "role": "main"
                     },
                     "children": [
                         {

@@ -141,8 +141,8 @@ The guide includes:
 Release archives are distributed in both ZIP and tar.gz formats:
 
 ```text
-sirsoft-basic_menu_reverse-v1.0.0.zip
-sirsoft-basic_menu_reverse-v1.0.0.tar.gz
+sirsoft-basic_menu_reverse-v1.0.1.zip
+sirsoft-basic_menu_reverse-v1.0.1.tar.gz
 ```
 
 Both archives contain `sirsoft-basic_menu_reverse/` as their top-level directory.

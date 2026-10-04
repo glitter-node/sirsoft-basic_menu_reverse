@@ -6,11 +6,10 @@
  * 없지만, 게시를 끈 조합이 남는다. 아이콘만 있는 버튼이 다수인 화면에서 아이콘 소실은
  * 곧 조작 불능이므로, 그 조합에서도 아이콘이 뜨도록 폰트를 data: URI 로 인라인한다.
  *
- * 다만 **현행 버전(Font Awesome 6) 패밀리만** 인라인한다. `all.min.css` 는 같은 폰트를
- * 구버전 호환 패밀리(`Font Awesome 5 …` · `FontAwesome`)에서 다시 참조하므로, 전부
- * 인라인하면 같은 폰트가 3벌 실려 렌더 차단 CSS 가 1.2MB 로 부푼다. 호환 패밀리는
- * 파일 참조를 유지한다 — 저장소 전수 조사에서 레거시 클래스(`fa fa-*`) 사용은 0건이고,
- * 그 조합에서 degrade 하는 것은 편집기 팔레트 샘플뿐이다.
+ * **현행 버전(Font Awesome 6) 패밀리만** 인라인한다. 입력은 `all.min.css` 전체가 아니라
+ * `fontawesome.min.css`, `brands.min.css`, `regular.min.css`, `solid.min.css`를 조합한다.
+ * 따라서 구버전 호환 패밀리(`Font Awesome 5 …` · `FontAwesome`)와 Font Awesome 4
+ * shim은 동봉하지 않는다. 저장소 전수 조사에서 레거시 클래스(`fa fa-*`) 사용은 0건이다.
  *
  * `ttf` 소스는 인라인 대상에서 제거한다 — 선언 하한(Chrome 111 / Safari 16.4 / Firefox 128)이
  * 모두 woff2 를 지원하므로 같은 폰트를 두 번 싣는 것은 배포 용량 낭비다.
@@ -113,7 +112,39 @@ function assertVendorVersion(inputPath, outputPath) {
 
 assertVendorVersion(inputCss, outputCss);
 
-const source = fs.readFileSync(inputCss, 'utf8');
+const inputCssDir = path.dirname(inputCss);
+const modernCssFiles = [
+    'fontawesome.min.css',
+    'brands.min.css',
+    'regular.min.css',
+    'solid.min.css',
+];
+
+const source = modernCssFiles
+    .map((file) => {
+        const filePath = path.join(inputCssDir, file);
+
+        if (!fs.existsSync(filePath)) {
+            console.error(`현대 Font Awesome CSS 를 찾을 수 없습니다: ${filePath}`);
+            process.exit(1);
+        }
+
+        return fs.readFileSync(filePath, 'utf8');
+    })
+    .join('\n');
+
+// Font Awesome 4 compatibility CSS/font-face is not used by this template.
+// Remove a stale compatibility font from the generated vendor directory so
+// regeneration cannot leave an unused runtime asset behind.
+for (const legacyFont of ['fa-v4compatibility.woff2', 'fa-v4compatibility.ttf']) {
+    const legacyPath = path.join(webfontsDir, legacyFont);
+
+    if (fs.existsSync(legacyPath)) {
+        fs.rmSync(legacyPath);
+        console.log(`[vendor-inline-css] removed unused legacy font: ${legacyPath}`);
+    }
+}
+
 const embedded = new Map();
 let inlinedBlocks = 0;
 let keptBlocks = 0;
@@ -185,6 +216,5 @@ console.log('[vendor-inline-css] 폰트 :', webfontsDir);
 for (const [name, info] of embedded) {
     console.log(`  - ${name}.woff2  ${info.bytes} bytes  sha256:${info.sha256}`);
 }
-console.log(`[vendor-inline-css] 인라인 @font-face ${inlinedBlocks}개 / 파일 참조 유지 ${keptBlocks}개 (구버전 호환 패밀리)`);
+console.log(`[vendor-inline-css] 인라인 @font-face ${inlinedBlocks}개 / 제외된 비현대 패밀리 ${keptBlocks}개`);
 console.log('[vendor-inline-css] 출력 :', outputCss, `(${fs.statSync(outputCss).size} bytes, sha256:${digest(outputCss)})`);
-
