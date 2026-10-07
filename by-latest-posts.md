@@ -316,5 +316,5 @@ NEWEST_BOARD_FIRST
 - bundled source 수정과 installed module 반영은 별도의 lifecycle입니다.
 - bundled source 반영에는 `module:update --source=bundled --force`를 사용합니다.
 - 이번 변경에서는 기존 layout을 유지하기 위해 `--layout-strategy=keep`을 사용합니다.
-- 반영 후 `module:cache-clear`와 `optimize:clear`을 수행합니다.
+- 반영 후 `module:cache-clear`와 `optimize:clear`를 수행합니다.
 - 최종 검증은 bundled source만 확인하지 않고 installed runtime과 실제 API/UI까지 확인합니다.
